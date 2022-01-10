@@ -1,10 +1,5 @@
 let newDisplay = true;
-let operatorInput = false;
 let currentValue = 0;
-let beforeOperator = 0;
-let afterOperator = 0;
-let operator = "";
-let currentOperator = "";
 
 let values = [];
 let operators = [];
@@ -120,47 +115,3 @@ function operate(operator, x, y) {
   if (operator === "/") return divide(x, y);
   return "ERROR";
 }
-
-// const buttons = document.querySelectorAll("button");
-// buttons.forEach((button) =>
-//   button.addEventListener("click", () => {
-//     if (button.classList.contains("number")) {
-//       if (newDisplay) {
-//         display.textContent = button.value;
-//         currentValue = +display.textContent;
-//         newDisplay = false;
-//       } else {
-//         display.textContent += button.value;
-//         currentValue = +display.textContent;
-//       }
-//     }
-//     if (button.classList.contains("operator")) {
-//       console.log(input);
-//       console.log(input.length);
-//       if (input.length >= 4) {
-//         console.log(input);
-//         output = operate(input[1], input[0], input[2]);
-//         display.textContent = output;
-//         input.push(+output);
-//         input.push(button.value);
-//       } else {
-//         newDisplay = true;
-//         display.textContent = 0;
-//         input.push(+currentValue);
-//         input.push(button.value);
-//       }
-//     }
-//     if (button.classList.contains("equals")) {
-//       input.push(+currentValue);
-//       console.log(input);
-//       let output = 0;
-//       for (let i = 0; i < input.length; i += 3) {
-//         output = operate(input[i + 1], input[i], input[i + 2]);
-//       }
-//       console.log(output);
-//       display.textContent = output;
-//       input = [output];
-//       console.log(input);
-//     }
-//   })
-// );
