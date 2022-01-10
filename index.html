@@ -7,23 +7,25 @@
     <script src="index.js" defer></script>
   </head>
   <body>
-    <h1>Calculator</h1>
+    <h1>"Four Function" Calculator</h1>
     <div class="flex-container">
       <div class="grid-container">
         <div class="display">
           <div class="content">0</div>
         </div>
         <div class="grid-item ac">
-          <button type="button" value="AC" class="content">AC</button>
+          <button type="button" value="AC" class="content clear">AC</button>
         </div>
         <div class="grid-item plus-minus">
-          <button type="button" value="+/-" class="content">+/-</button>
+          <button type="button" value="+/-" class="content plusminus">
+            +/-
+          </button>
         </div>
         <div class="grid-item percent">
-          <button type="button" value="%" class="content">%</button>
+          <button type="button" value="%" class="content percent">%</button>
         </div>
         <div class="grid-item backslash">
-          <button type="button" value="/" class="content">/</button>
+          <button type="button" value="/" class="content operator">/</button>
         </div>
         <div class="grid-item seven">
           <button type="button" value="7" class="content number">7</button>
@@ -35,7 +37,7 @@
           <button type="button" value="9" class="content number">9</button>
         </div>
         <div class="grid-item star">
-          <button type="button" value="*" class="content">*</button>
+          <button type="button" value="*" class="content operator">*</button>
         </div>
         <div class="grid-item four">
           <button type="button" value="4" class="content number">4</button>
@@ -47,7 +49,7 @@
           <button type="button" value="6" class="content number">6</button>
         </div>
         <div class="grid-item minus">
-          <button type="button" value="-" class="content">-</button>
+          <button type="button" value="-" class="content operator">-</button>
         </div>
         <div class="grid-item one">
           <button type="button" value="1" class="content number">1</button>
@@ -59,16 +61,19 @@
           <button type="button" value="3" class="content number">3</button>
         </div>
         <div class="grid-item plus">
-          <button type="button" value="+" class="content">+</button>
+          <button type="button" value="+" class="content operator">+</button>
         </div>
         <div class="grid-item zero">
           <button type="button" value="0" class="content number">0</button>
         </div>
         <div class="grid-item dot">
-          <button type="button" value="." class="content">.</button>
+          <button type="button" value="." class="content decimal">.</button>
+        </div>
+        <div class="grid-item backspace">
+          <button type="button" value="DEL" class="content delete">DEL</button>
         </div>
         <div class="grid-item equals">
-          <button type="button" value="=" class="content">=</button>
+          <button type="button" value="=" class="content equals">=</button>
         </div>
       </div>
     </div>
