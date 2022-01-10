@@ -59,12 +59,16 @@ buttons.forEach((button) =>
       if (values.length === 0) return;
       if (operators[0] === "+") {
         display.textContent = (values[0] * (1 + currentValue / 100)).toFixed(2);
+        currentValue = +display.textContent;
+        values = [];
+        operators = [];
       }
       if (operators[0] === "-") {
         display.textContent = (values[0] * (1 - currentValue / 100)).toFixed(2);
+        currentValue = +display.textContent;
+        values = [];
+        operators = [];
       }
-
-      //   display.textContent = display.textContent / 100;
     }
     if (button.classList.contains("decimal")) {
       if (newDisplay) {
@@ -76,6 +80,18 @@ buttons.forEach((button) =>
         }
         display.textContent += button.value;
         currentValue = +display.textContent;
+      }
+    }
+    if (button.classList.contains("delete")) {
+      if (display.textContent === "0") return;
+      display.textContent = display.textContent.slice(
+        0,
+        display.textContent.length - 1
+      );
+      currentValue = display.textContent;
+      if (display.textContent === "") {
+        display.textContent = "0";
+        return;
       }
     }
   })
