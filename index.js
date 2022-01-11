@@ -15,6 +15,7 @@ buttons.forEach((button) =>
         currentValue = +display.textContent;
         newDisplay = false;
       } else {
+        if (display.textContent.length === 17) return;
         display.textContent += button.value;
         currentValue = +display.textContent;
       }
@@ -32,6 +33,12 @@ buttons.forEach((button) =>
         values = [output];
         operators = [button.value];
         display.textContent = output;
+        let stringOutput = display.textContent + "";
+        console.log(stringOutput.length);
+        if (stringOutput.length > 17) {
+          display.textContent = numberLength(display.textContent);
+          values = [+display.textContent];
+        }
         newDisplay = true;
         return;
       }
@@ -49,6 +56,12 @@ buttons.forEach((button) =>
       }
       values = [output];
       display.textContent = output;
+      let stringOutput = display.textContent + "";
+      console.log(stringOutput.length);
+      if (stringOutput.length > 17) {
+        display.textContent = numberLength(display.textContent);
+        values = [+display.textContent];
+      }
       newDisplay = true;
     }
     if (button.classList.contains("clear")) {
@@ -142,4 +155,12 @@ function error() {
     display.textContent = "0";
   }
   slowLoop();
+}
+
+function numberLength(value) {
+  let stringValue = "" + value;
+  if (stringValue.length > 17) {
+    return +stringValue.substring(0, 17);
+  }
+  return value;
 }

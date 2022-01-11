@@ -1,5 +1,6 @@
 * {
-  /* font-size: 1px; */
+  font-family: Ubuntu;
+  font-size: 22px;
 }
 
 h1 {
@@ -30,7 +31,7 @@ h1 {
 
 .display .content {
   align-self: center;
-  font-size: 28px;
+  font-size: 30px;
   padding: 0 12px;
 }
 
