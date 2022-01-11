@@ -23,6 +23,12 @@ buttons.forEach((button) =>
       values.push(currentValue);
       if (values.length === 2) {
         let output = operate(operators[0], values[0], values[1]);
+        if (output === "ERROR" || output === "Infinity") {
+          values = [];
+          operators = [];
+          error();
+          return;
+        }
         values = [output];
         operators = [button.value];
         display.textContent = output;
@@ -31,15 +37,19 @@ buttons.forEach((button) =>
       }
       operators.push(button.value);
       newDisplay = true;
-      console.log(values, operators);
     }
     if (button.classList.contains("equals")) {
       values.push(currentValue);
       let output = operate(operators[0], values[0], values[1]);
+      if (output === "ERROR" || output === "Infinity") {
+        values = [];
+        operators = [];
+        error();
+        return;
+      }
       values = [output];
       display.textContent = output;
       newDisplay = true;
-      console.log(values, operators);
     }
     if (button.classList.contains("clear")) {
       values = [];
@@ -64,6 +74,12 @@ buttons.forEach((button) =>
         values = [];
         operators = [];
       }
+      if (operators[0] === "/" || operators[0] === "*") {
+        values = [];
+        operators = [];
+        error();
+        return;
+      }
     }
     if (button.classList.contains("decimal")) {
       if (newDisplay) {
@@ -83,7 +99,7 @@ buttons.forEach((button) =>
         0,
         display.textContent.length - 1
       );
-      currentValue = display.textContent;
+      currentValue = +display.textContent;
       if (display.textContent === "") {
         display.textContent = "0";
         return;
@@ -114,4 +130,16 @@ function operate(operator, x, y) {
   if (operator === "*") return multiply(x, y);
   if (operator === "/") return divide(x, y);
   return "ERROR";
+}
+
+const wait = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+
+function error() {
+  async function slowLoop() {
+    display.textContent = "ERROR";
+
+    await wait(1200);
+    display.textContent = "0";
+  }
+  slowLoop();
 }
