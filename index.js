@@ -34,7 +34,6 @@ buttons.forEach((button) =>
         operators = [button.value];
         display.textContent = output;
         let stringOutput = display.textContent + "";
-        console.log(stringOutput.length);
         if (stringOutput.length > 17) {
           display.textContent = numberLength(display.textContent);
           values = [+display.textContent];
@@ -57,7 +56,6 @@ buttons.forEach((button) =>
       values = [output];
       display.textContent = output;
       let stringOutput = display.textContent + "";
-      console.log(stringOutput.length);
       if (stringOutput.length > 17) {
         display.textContent = numberLength(display.textContent);
         values = [+display.textContent];
@@ -72,6 +70,7 @@ buttons.forEach((button) =>
     }
     if (button.classList.contains("plusminus")) {
       display.textContent = -display.textContent;
+      currentValue = +display.textContent;
     }
     if (button.classList.contains("percent")) {
       if (values.length === 0) return;
