@@ -1,6 +1,6 @@
 * {
   font-family: Ubuntu;
-  font-size: 22px;
+  font-size: 18px;
   color: rgba(255, 255, 255, 0.822);
 }
 
@@ -23,6 +23,7 @@ h1 {
   height: 520px;
   background-color: black;
   border-radius: 10px;
+  grid-auto-columns: minmax(0, 1fr);
 }
 
 .display {
